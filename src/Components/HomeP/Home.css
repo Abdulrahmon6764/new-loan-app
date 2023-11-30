@@ -418,7 +418,7 @@
   }
   
   .amount_dev input[type="text"] {
-    padding: 20px 145px 20px 30px;
+    padding: 20px 111px 20px 30px;
     font-size: 17px;
     border: 1px solid #f2f2f2;
     background-color: #f2f2f2;
@@ -426,7 +426,7 @@
   }
   
   .days-dev input[type="text"] {
-    padding: 20px 145px 20px 30px;
+    padding: 20px 111px 20px 30px;
     font-size: 17px;
     border: 1px solid #f2f2f2;
     background-color: #f2f2f2;
@@ -434,7 +434,7 @@
   }
   
   .repay-dev input[type="text"] {
-    padding: 20px 145px 20px 30px;
+    padding: 20px 111px 20px 30px;
     font-size: 17px;
     border: 1px solid #f2f2f2;
     background-color: #f2f2f2;
@@ -515,13 +515,13 @@
   
   .contentOne .shape-four-img {
     position: absolute;
-    right: 750px;
+    right: 700px;
     bottom: 250px;
   }
   
   .contentOne .shape-two-img {
     position: absolute;
-    right: 700px;
+    right: 620px;
   }
   
   .forms .shape-one {
@@ -534,5 +534,11 @@
     position: absolute;
     left: 580px;
     bottom: 330px;
+  }
+
+  .forms .shape-three{
+    position: absolute;
+    left: 580px;
+    bottom: 20px;
   }
   

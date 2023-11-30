@@ -391,6 +391,7 @@ function Home() {
             alt="shapefive"
             className="shape-five"
           />
+          <img src="https://html-template.spider-themes.net/banca/img/home-4/shape-3.png" alt="shapethree" className="shape-three"/>
           <br></br>
           <div className="select_dev" style={{ marginBottom: "20px" }}>
             <label htmlFor="typeloan" className="mb-3">
