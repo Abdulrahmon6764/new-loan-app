@@ -1,548 +1,567 @@
 * {
-    padding: none;
-    margin: none;
-    list-style-type: none;
-    box-sizing: border-box;
-    /* font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif; */
-  }
-  
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  .body {
-    background-color: rgba(0, 0, 0, 0.909);
-    height: 210vh;
-    /* overflow: hidden; */
-  }
-  
-  .flex-container .image_logo {
-    width: 6%;
-    margin-top: 35px;
-  }
-  
-  .flex-container {
-    display: flex;
-    /* margin-left: 50px; */
-    flex-direction: row;
-    justify-content: space-evenly;
-  }
-  
-  .drop_down {
-    /* margin-left: 450px; */
-    margin-top: 49px;
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown_content {
-    position: absolute;
-    display: none;
-    background-color: white;
-    min-width: 240px;
-    padding-left: 40px;
-    padding-top: 32px;
-    padding-bottom: 15px;
-    border-radius: 5px;
-    z-index: 1;
-    left: -50px;
-    bottom: -430px;
-  }
-  
-  .dropdown_content .block {
-    margin-bottom: 27px;
-    display: block;
-  }
-  
-  .block:hover {
-    color: #0050b2 !important;
-  }
-  
-  .caret-up {
-    position: absolute;
-    bottom: 420px;
-    font-size: 35px;
-    color: white;
-  }
-  
-  .drop_down:hover .dropdown_content {
-    display: block;
-  }
-  
-  .link_smart:active {
-    color: #0050b2;
-  }
-  
-  .active {
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
-    text-decoration: none;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    /* margin-left: 50px; */
-  }
-  
-  .link_smart {
-    text-decoration: none;
-    font-size: 20px;
-    color: gray;
-  }
-  
-  .circle-border {
-    color: white;
-    width: 8px;
-    height: 8px;
-    background-color: white;
-    border-radius: 50%;
-    margin-left: 19px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .loan-app-dropdown {
-    margin-top: 49px;
-    position: relative;
-    display: inline-block;
-    margin-left: 60px;
-  }
-  
-  .loan-app-dropdown span {
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    display: block;
-  }
-  
-  .loan-app-dropdown-content .dblock {
-    margin-bottom: 27px;
-    display: block;
-  }
-  
-  .loan-app-dropdown:hover .loan-app-dropdown-content {
-    display: block;
-  }
-  
-  .loan-app-dropdown-content {
-    position: absolute;
-    display: none;
-    background-color: white;
-    min-width: 220px;
-    padding-left: 30px;
-    padding-top: 32px;
-    padding-bottom: 15px;
-    border-radius: 5px;
-    z-index: 1;
-  }
-  
-  .caret {
-    position: absolute;
-    bottom: 135px;
-    font-size: 35px;
-    color: white;
-  }
-  
-  .dblock:hover {
-    color: #0050b2 !important;
-  }
-  
-  .carett {
-    position: absolute;
-    bottom: 192px;
-    font-size: 35px;
-    color: white;
-  }
-  
-  .blog-dropdown {
-    margin-top: 49px;
-    position: relative;
-    display: inline-block;
-    margin-left: 60px;
-  }
-  
-  .blog-dropdown-content {
-    position: absolute;
-    display: none;
-    background-color: white;
-    min-width: 200px;
-    padding-left: 30px;
-    padding-top: 32px;
-    padding-bottom: 15px;
-    border-radius: 5px;
-    z-index: 1;
-    right: -140px;
-  }
-  
-  .caretfa {
-    position: absolute;
-    bottom: 135px;
-    font-size: 35px;
-    color: white;
-  }
-  
-  .blog-dropdown span {
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    display: block;
-  }
-  
-  .blog-dropdown-content .dblock {
-    margin-bottom: 27px;
-    display: block;
-  }
-  
-  .blog-dropdown:hover .blog-dropdown-content {
-    display: block;
-  }
-  
-  .get-job-dropdown {
-    margin-top: 49px;
-    position: relative;
-    display: inline-block;
-    margin-left: 60px;
-  }
-  
-  .get-job-dropdown span {
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    display: block;
-  }
-  
-  .job-dropdown-content {
-    position: absolute;
-    display: none;
-    background-color: white;
-    min-width: 200px;
-    padding-left: 30px;
-    padding-top: 32px;
-    padding-bottom: 15px;
-    border-radius: 5px;
-    z-index: 1;
-  }
-  
-  .get-job-dropdown:hover .job-dropdown-content {
-    display: block;
-  }
-  
-  .job-dropdown-content .dblock {
-    margin-bottom: 27px;
-    display: block;
-  }
-  
-  .about-dropdown {
-    margin-top: 49px;
-    position: relative;
-    display: inline-block;
-    margin-left: 60px;
-  }
-  
-  .about-dropdown span {
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    display: block;
-  }
-  
-  .about-dropdown-content {
-    position: absolute;
-    display: none;
-    background-color: white;
-    min-width: 200px;
-    padding-left: 30px;
-    padding-top: 32px;
-    padding-bottom: 15px;
-    border-radius: 5px;
-    z-index: 1;
-  }
-  
-  .about-dropdown-content .dblock {
-    margin-bottom: 27px;
-    display: block;
-  }
-  
-  .about-dropdown:hover .about-dropdown-content {
-    display: block;
-  }
-  
-  .apply_dev {
-    margin-top: 49px;
-    margin-left: 60px;
-  }
-  
-  .apply-loan {
-    text-decoration: none;
-    border: 1px solid white;
-    background-color: white;
-    padding: 10px 50px 10px 50px;
-    border-radius: 30px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #0050b2;
-  }
-  
-  .apply-loan:hover {
-    background-color: #0050b2;
-    color: white;
-    transition: 0.4s;
-    border: 1px solid #0050b2;
-  }
-  
-  .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-    margin-top: 49px;
-    margin-left: 20px;
-  }
-  
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #1d2746;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-  }
-  
-  .fa-cloud-sun {
-    color: #ffd700;
-    position: absolute;
-    bottom: 9px;
-    left: 35px;
-    font-size: 15px;
-  }
-  
-  .switch .fa-moon {
-    color: #ffd700;
-    position: absolute;
-    font-size: 15px;
-    margin-left: 10px;
-    top: 10px;
-    display: none;
-  }
-  
-  input:checked + .slider {
-    background-color: #1d2746;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 5px #1d2746;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
-  
-  .layout_one_dev {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-  }
-  
-  .forms {
-    background-color: white;
-    width: 495px;
-    margin-top: 50px;
-    padding-left: 54px;
-    padding-top: 25px;
-    height: 680px;
-    border-radius: 10px;
-    position: relative;
-  }
-  .select_dev select {
-    padding: 20px 0px 20px 30px;
-    font-size: 17px;
-    border: 1px solid #f2f2f2;
-    background-color: #f2f2f2;
-    border-radius: 5px;
-    color: gray;
-    width:400px ;
-  }
-  
-  select option {
-    font-size: 18px;
-  }
-  
-  .forms label {
-    font-size: 15px;
-    font-weight: bold;
-  }
-  
-  .amount_dev input[type="text"] {
-    padding: 20px 0px 20px 30px;
-    font-size: 17px;
-    border: 1px solid #f2f2f2;
-    background-color: #f2f2f2;
-    border-radius: 5px;
-    width: 400px;
-  }
-  
-  .days-dev input[type="text"] {
-    padding: 20px 0px 20px 30px;
-    font-size: 17px;
-    border: 1px solid #f2f2f2;
-    background-color: #f2f2f2;
-    border-radius: 5px;
-    width: 400px;
-  }
-  
-  .repay-dev input[type="text"] {
-    padding: 20px 0px 20px 30px;
-    font-size: 17px;
-    border: 1px solid #f2f2f2;
-    background-color: #f2f2f2;
-    border-radius: 5px;
-    outline: none;
-    width: 400px;
-  }
-  
-  .forms .bitton {
-    font-size: 15px;
-    text-decoration: none;
-    padding: 10px 100px 10px 100px;
-    background-color: black;
-    border: 1px solid black;
-    border-radius: 5px;
-    text-align: center;
-    margin-left: 30px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  }
-  
-  .financial-text h1 {
-    color: white;
-    font-size: 55px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    margin-bottom: 30px;
-    font-weight: bold;
-  }
-  
-  .financial-text .bitton-one {
-    font-size: 19px;
-    background-color: #0050b2;
-    border: 1px solid #0050b2;
-    padding: 12px 30px 12px 30px;
-    border-radius: 5px;
-    font-weight: bold;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  }
-  
-  .financial-text .link {
-    margin-left: 30px;
-    font-size: 18px;
-    color: white;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  }
-  
-  .link .fa-arrow-right {
-    display: none;
-  }
-  
-  .link:hover .fa-arrow-right {
-    display: inline-block;
-  }
-  
-  .financial-text p {
-    color: white;
-    font-size: 18px;
-    margin-bottom: 45px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  }
-  
-  .financial-text {
-    margin-left: 30px;
-    margin-top: 100px;
-  }
-  
-  .copera p {
-    font-size: 20px;
-    font-weight: 500;
-  }
-  
-  .contentOne {
-    position: relative;
-  }
-  
-  .contentOne .shape-four-img {
-    position: absolute;
-    right: 700px;
-    bottom: 250px;
-  }
-  
-  .contentOne .shape-two-img {
-    position: absolute;
-    right: 620px;
-  }
-  
-  .forms .shape-one {
-    position: absolute;
-    left: 492px;
-    bottom: 672px;
-  }
-  
-  .forms .shape-five {
-    position: absolute;
-    left: 580px;
-    bottom: 330px;
-  }
+  padding: none;
+  margin: none;
+  list-style-type: none;
+  box-sizing: border-box;
+}
 
-  .forms .shape-three{
-    position: absolute;
-    left: 580px;
-    bottom: 20px;
-  }
-  
+html {
+  scroll-behavior: smooth;
+}
+
+.body {
+  background-color: #161716;
+  background-image: conic-gradient(at 50% 100%,#161716,rgba(0, 100, 0, 0.705));
+  height: 99vh;
+}
+
+.dflex .image_logo {
+  width: 10%;
+  margin-right: 270px;
+  margin-top: 30px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  height: 100px;
+}
+
+.dflex {
+  display: flex;
+}
+
+.drop_down {
+  margin-top: 30px;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown_content {
+  position: absolute;
+  display: none;
+  background-color: white;
+  min-width: 240px;
+  padding-left: 40px;
+  padding-top: 32px;
+  padding-bottom: 15px;
+  border-radius: 5px;
+  z-index: 1;
+  left: -50px;
+  bottom: -430px;
+}
+
+.dropdown_content .block {
+  margin-bottom: 27px;
+  display: block;
+}
+
+.block:hover {
+  color: #0050b2 !important;
+}
+
+.caret-up {
+  position: absolute;
+  bottom: 420px;
+  font-size: 35px;
+  color: white;
+}
+
+.drop_down:hover .dropdown_content {
+  display: block;
+}
+
+.link_smart:active {
+  color: #0050b2;
+}
+
+.active {
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.link_smart {
+  text-decoration: none;
+  font-size: 20px;
+  color: gray;
+}
+
+.circle-border {
+  color: white;
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+  margin-left: 19px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.loan-app-dropdown {
+  margin-top: 30px;
+  position: relative;
+  display: inline-block;
+  margin-left: 60px;
+}
+
+.loan-app-dropdown span {
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  display: block;
+}
+
+.loan-app-dropdown-content .dblock {
+  margin-bottom: 27px;
+  display: block;
+}
+
+.loan-app-dropdown:hover .loan-app-dropdown-content {
+  display: block;
+}
+
+.loan-app-dropdown-content {
+  position: absolute;
+  display: none;
+  background-color: white;
+  min-width: 220px;
+  padding-left: 30px;
+  padding-top: 32px;
+  padding-bottom: 15px;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.caret {
+  position: absolute;
+  bottom: 135px;
+  font-size: 35px;
+  color: white;
+}
+
+.dblock:hover {
+  color: #0050b2 !important;
+}
+
+.carett {
+  position: absolute;
+  bottom: 192px;
+  font-size: 35px;
+  color: white;
+}
+
+.blog-dropdown {
+  margin-top: 30px;
+  position: relative;
+  display: inline-block;
+  margin-left: 60px;
+}
+
+.blog-dropdown-content {
+  position: absolute;
+  display: none;
+  background-color: white;
+  min-width: 200px;
+  padding-left: 30px;
+  padding-top: 32px;
+  padding-bottom: 15px;
+  border-radius: 5px;
+  z-index: 1;
+  right: -140px;
+}
+
+.caretfa {
+  position: absolute;
+  bottom: 135px;
+  font-size: 35px;
+  color: white;
+}
+
+.blog-dropdown span {
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  display: block;
+}
+
+.blog-dropdown-content .dblock {
+  margin-bottom: 27px;
+  display: block;
+}
+
+.blog-dropdown:hover .blog-dropdown-content {
+  display: block;
+}
+
+.get-job-dropdown {
+  margin-top: 30px;
+  position: relative;
+  display: inline-block;
+  margin-left: 60px;
+}
+
+.get-job-dropdown span {
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  display: block;
+}
+
+.job-dropdown-content {
+  position: absolute;
+  display: none;
+  background-color: white;
+  min-width: 200px;
+  padding-left: 30px;
+  padding-top: 32px;
+  padding-bottom: 15px;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.get-job-dropdown:hover .job-dropdown-content {
+  display: block;
+}
+
+.job-dropdown-content .dblock {
+  margin-bottom: 27px;
+  display: block;
+}
+
+.about-dropdown {
+  margin-top: 30px;
+  position: relative;
+  display: inline-block;
+  margin-left: 60px;
+}
+
+.about-dropdown span {
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  display: block;
+}
+
+.about-dropdown-content {
+  position: absolute;
+  display: none;
+  background-color: white;
+  min-width: 200px;
+  padding-left: 30px;
+  padding-top: 32px;
+  padding-bottom: 15px;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.about-dropdown-content .dblock {
+  margin-bottom: 27px;
+  display: block;
+}
+
+.about-dropdown:hover .about-dropdown-content {
+  display: block;
+}
+
+.apply_dev {
+  margin-top: 30px;
+  margin-left: 60px;
+}
+
+.apply-loan {
+  text-decoration: none;
+  border: 1px solid white;
+  background-color: white;
+  padding: 10px 50px 10px 50px;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0050b2;
+}
+
+.apply-loan:hover {
+  background-color: #0050b2;
+  color: white;
+  transition: 0.4s;
+  border: 1px solid #0050b2;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 53px;
+  height: 27px;
+  margin-top: 30px;
+  margin-left: 40px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #1d2746;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.fa-cloud-sun {
+  color: #ffd700;
+  position: absolute;
+  bottom: 7px;
+  left: 30px;
+  font-size: 15px;
+}
+
+.switch .fa-moon {
+  color: #ffd700;
+  position: absolute;
+  font-size: 15px;
+  margin-left: 10px;
+  top: 6px;
+  display: none;
+}
+
+input:checked + .slider {
+  background-color: #1d2746;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 5px #1d2746;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.layout_one_dev {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.forms {
+  background-color: white;
+  width: 495px;
+  padding-left: 54px;
+  padding-top: 25px;
+  height: 680px;
+  border-radius: 10px;
+}
+.select_dev select {
+  padding: 20px 0px 20px 30px;
+  font-size: 17px;
+  border: 1px solid #f2f2f2;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  color: gray;
+  width: 400px;
+  outline: none;
+}
+
+select option {
+  font-size: 18px;
+}
+
+.forms label {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.amount_dev input[type="text"] {
+  padding: 20px 0px 20px 30px;
+  font-size: 17px;
+  border: 1px solid #f2f2f2;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  width: 400px;
+  outline: none;
+}
+
+.days-dev input[type="text"] {
+  padding: 20px 0px 20px 30px;
+  font-size: 17px;
+  border: 1px solid #f2f2f2;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  width: 400px;
+  outline: none;
+}
+
+.repay-dev input[type="text"] {
+  padding: 20px 0px 20px 30px;
+  font-size: 17px;
+  border: 1px solid #f2f2f2;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  outline: none;
+  width: 400px;
+}
+
+ .fa-dollar-sign{
+  margin-left: -30px;
+}
+
+.forms .bitton {
+  font-size: 15px;
+  text-decoration: none;
+  padding: 10px 100px 10px 100px;
+  background-color: #1a1f2c;
+  border: 1px solid #1a1f2c;
+  border-radius: 5px;
+  text-align: center;
+  margin-left: 41px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.financial-text {
+  margin-left: 30px;
+}
+
+.rectangle{
+ display: flex; 
+}
+
+.rectangle .rectt {
+  background-color: #f57950;
+  width: 240px;
+  height: 20px;
+  margin-top: 39px;
+}
+
+.head .head-smart-f {
+  color: white;
+  font-size: 55px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: bold;
+}
+
+.rectangle .head-buss {
+  color: white;
+  font-size: 55px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  margin-left: -240px;
+ 
+}
+
+.financial-text .bitton-one {
+  font-size: 19px;
+  background-color: #0050b2;
+  border: 1px solid #0050b2;
+  padding: 12px 30px 12px 30px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.financial-text .link {
+  margin-left: 30px;
+  font-size: 18px;
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.link .fa-arrow-right {
+  display: none;
+}
+
+.link:hover .fa-arrow-right {
+  display: inline-block;
+}
+
+.financial-text p {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 45px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.copera p {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.shape-four-img{
+ margin-left: -180px;
+ margin-top: -300px;
+}
+
+ .shape-two-img{
+  margin-left: -275px;
+  margin-top: -300px;
+}
+
+.shape-one{
+margin-left:440px;
+margin-top: -1350px;
+}
+
+.shape-five{
+  margin-left:550px;
+  margin-top: -700px;
+}
+
+.shape-three{
+  margin-left:550px;
+}
+
