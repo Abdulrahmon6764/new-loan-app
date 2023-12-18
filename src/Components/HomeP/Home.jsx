@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Home.css";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 function Home() {
   const myInputRef = useRef();
@@ -14,21 +14,21 @@ function Home() {
   const body = useRef();
 
   const focusOnchange = () => {
-    const isChecked = myInputRef.current.checked
+    const isChecked = myInputRef.current.checked;
     if (isChecked) {
-      iconsun.current.style.display = 'none';
-      iconmoon.current.style.display = 'block';
-      formsbackgroundcolor.current.style.backgroundColor = '#2C303A';
-      formsbackgroundcolor.current.style.color = '#bec3ce';
-      body.current.style.backgroundColor = 'blue';
+      iconsun.current.style.display = "none";
+      iconmoon.current.style.display = "block";
+      formsbackgroundcolor.current.style.backgroundColor = "#2C303A";
+      formsbackgroundcolor.current.style.color = "#bec3ce";
+      body.current.style.backgroundColor = "blue";
     } else {
-      iconsun.current.style.display = 'block';
-      iconmoon.current.style.display = 'none';
-      formsbackgroundcolor.current.style.backgroundColor = 'white';
-      formsbackgroundcolor.current.style.color = 'black';
-      body.current.style.backgroundColor = '#161716';
+      iconsun.current.style.display = "block";
+      iconmoon.current.style.display = "none";
+      formsbackgroundcolor.current.style.backgroundColor = "white";
+      formsbackgroundcolor.current.style.color = "black";
+      body.current.style.backgroundColor = "#161716";
     }
-    localStorage.setItem('darkMode',isChecked);
+    localStorage.setItem("darkMode", isChecked);
   };
 
   const repayAmountElement = useRef();
@@ -199,13 +199,61 @@ function Home() {
       }
 
       prevScrollpos = currentScroll;
+
+      // localStorage.setItem("prevScroll", currentScroll);
     };
   };
 
+  const handleTabDisplay = (evt, tabname) => {
+    let i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" activee", "");
+    }
+
+    document.getElementById(tabname).style.display = "block";
+
+    evt.currentTarget.className += " activee";
+  };
+
+  const handleCollapsibles = () => {
+    let coll = document.getElementsByClassName("collapsible");
+    // const defaultColabs = document.getElementById("DefaultCollabsOpen").click();
+    let i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function () {
+        this.classList.toggle("active_e");
+        let content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    }
+    document.getElementById("DefaultCollabsOpen").click();
+    // localStorage.setItem("defaultColabs", defaultColabs);
+  };
+
   useEffect(() => {
-  const darkMode = localStorage.getItem('darkMode');
-   myInputRef.current.checked = darkMode === "true";
-   focusOnchange();
+    const darkMode = localStorage.getItem("darkMode");
+    myInputRef.current.checked = darkMode === "true";
+    focusOnchange();
+
+    // document.getElementById("DefaultCollabsOpen").click();
+    // const currentScroll = localStorage.getItem("prevScroll")
+    // window.onscroll = currentScroll
+
+    // handleScroll();
+
+    document.getElementById("DefaultCollabsOpen").click();
+
+    handleCollapsibles();
 
     document.addEventListener("click", handleOutsideClickEle);
 
@@ -217,7 +265,17 @@ function Home() {
 
     window.addEventListener("scroll", handleScroll);
 
+    document.getElementById("defaultOpen").click();
+
     return () => {
+      document.getElementById("DefaultCollabsOpen").click();
+
+      handleCollapsibles();
+
+      //  window.onscroll(null,currentScroll)
+
+      // window.onscroll = null;
+
       document.removeEventListener("click", handleOutsideClickEle);
 
       document.removeEventListener("click", handledDaysOutsideClick);
@@ -231,286 +289,293 @@ function Home() {
   }, []);
 
   return (
-    <div className="body" ref={body}>
+    <div className="body">
       {/* <br></br><br></br> */}
-      <ul className="flex-container" ref={navBar}>
-        <div className="dflex">
-          <li className="image_logo">
-            <img
-              src="https://html-template.spider-themes.net/banca/img/logo/Logo@2x.png"
-              alt="logo"
-              width={"100%"}
-              ref={_imageLogo}
-            />
-          </li>
-          <div className="drop_down">
-            <Link to="/" className="active" ref={homeLink}>
-              HOME
-            </Link>
-            <div className="circle-border" ref={circleElement}></div>
-            <br></br>
-            <br></br>
-            <div className="dropdown_content animate__animated animate__fadeIn">
-              <li className="caret-up">
-                <i class="fa-solid fa-caret-up"></i>
-              </li>
-              <Link to="/" className="link_smart block">
-                Smart Finance
+      <main className="back_ground_color" ref={body}>
+        <ul className="flex-container" ref={navBar}>
+          <div className="dflex">
+            <li className="image_logo">
+              <img
+                src="https://html-template.spider-themes.net/banca/img/logo/Logo@2x.png"
+                alt="logo"
+                width={"100%"}
+                ref={_imageLogo}
+              />
+            </li>
+            <div className="drop_down">
+              <Link to="/" className="active" ref={homeLink}>
+                HOME
               </Link>
-              <Link
-                to="#"
-                className="loan-link block"
-                style={{
-                  textDecoration: "none",
-                  fontSize: "20px",
-                  color: "gray",
-                }}
-              >
-                Loan Company
-              </Link>
-              <Link
-                to="#"
-                className="mobilee-link block"
-                style={{
-                  textDecoration: "none",
-                  fontSize: "20px",
-                  color: "gray",
-                }}
-              >
-                Mobile App
-              </Link>
-              <Link
-                to="#"
-                className="simple-link block"
-                style={{
-                  textDecoration: "none",
-                  fontSize: "20px",
-                  color: "gray",
-                }}
-              >
-                Simple Banca
-              </Link>
-              <Link
-                to="#"
-                className="steps-link block"
-                style={{
-                  textDecoration: "none",
-                  fontSize: "20px",
-                  color: "gray",
-                }}
-              >
-                Loan Steps
-              </Link>
-              <Link
-                to="#"
-                className="finance-link block"
-                style={{
-                  textDecoration: "none",
-                  fontSize: "20px",
-                  color: "gray",
-                }}
-              >
-                Finance Sass App
-              </Link>
-              <Link
-                to="#"
-                className="small-link block"
-                style={{
-                  textDecoration: "none",
-                  fontSize: "20px",
-                  color: "gray",
-                }}
-              >
-                Small Bank
+              <div className="circle-border" ref={circleElement}></div>
+              <br></br>
+              <br></br>
+              <div className="dropdown_content animate__animated animate__fadeIn">
+                <li className="caret-up">
+                  <i className="fa-solid fa-caret-up"></i>
+                </li>
+                <Link to="/" className="link_smart block">
+                  Smart Finance
+                </Link>
+                <Link
+                  to="#"
+                  className="loan-link block"
+                  style={{
+                    textDecoration: "none",
+                    fontSize: "20px",
+                    color: "gray",
+                  }}
+                >
+                  Loan Company
+                </Link>
+                <Link
+                  to="#"
+                  className="mobilee-link block"
+                  style={{
+                    textDecoration: "none",
+                    fontSize: "20px",
+                    color: "gray",
+                  }}
+                >
+                  Mobile App
+                </Link>
+                <Link
+                  to="#"
+                  className="simple-link block"
+                  style={{
+                    textDecoration: "none",
+                    fontSize: "20px",
+                    color: "gray",
+                  }}
+                >
+                  Simple Banca
+                </Link>
+                <Link
+                  to="#"
+                  className="steps-link block"
+                  style={{
+                    textDecoration: "none",
+                    fontSize: "20px",
+                    color: "gray",
+                  }}
+                >
+                  Loan Steps
+                </Link>
+                <Link
+                  to="#"
+                  className="finance-link block"
+                  style={{
+                    textDecoration: "none",
+                    fontSize: "20px",
+                    color: "gray",
+                  }}
+                >
+                  Finance Sass App
+                </Link>
+                <Link
+                  to="#"
+                  className="small-link block"
+                  style={{
+                    textDecoration: "none",
+                    fontSize: "20px",
+                    color: "gray",
+                  }}
+                >
+                  Small Bank
+                </Link>
+              </div>
+            </div>
+
+            <div className="loan-app-dropdown">
+              <span ref={loanElement}>LOAN</span>
+              <br></br>
+              <br></br>
+              <div className="loan-app-dropdown-content animate__animated animate__fadeIn">
+                <li className="caret">
+                  <i className="fa-solid fa-caret-up"></i>
+                </li>
+                <Link
+                  to="#"
+                  className="getloan-link dblock"
+                  style={{
+                    textDecoration: "none",
+                    fontSize: "20px",
+                    color: "gray",
+                  }}
+                >
+                  Get Loan
+                </Link>
+                <Link
+                  to="#"
+                  className="loanapp-link dblock"
+                  style={{
+                    textDecoration: "none",
+                    fontSize: "20px",
+                    color: "gray",
+                  }}
+                >
+                  Loan Application
+                </Link>
+              </div>
+            </div>
+
+            <div className="get-job-dropdown">
+              <span ref={getjobElement}>GET JOB</span>
+              <br></br>
+              <br></br>
+              <div className="job-dropdown-content animate__animated animate__fadeIn">
+                <li className="carett">
+                  <i className="fa-solid fa-caret-up"></i>
+                </li>
+                <Link
+                  to="#"
+                  className="get-link dblock"
+                  style={{
+                    textDecoration: "none",
+                    fontSize: "20px",
+                    color: "gray",
+                  }}
+                >
+                  Career
+                </Link>
+                <Link
+                  to="#"
+                  className="jb-link dblock"
+                  style={{
+                    textDecoration: "none",
+                    fontSize: "20px",
+                    color: "gray",
+                  }}
+                >
+                  Jobs
+                </Link>
+                <Link
+                  to="#"
+                  className="jbapp-link dblock"
+                  style={{
+                    textDecoration: "none",
+                    fontSize: "20px",
+                    color: "gray",
+                  }}
+                >
+                  Job Application
+                </Link>
+              </div>
+            </div>
+
+            <div className="about-dropdown">
+              <span ref={aboutElement}>ABOUT</span>
+              <br></br>
+              <br></br>
+              <div className="about-dropdown-content animate__animated animate__fadeIn">
+                <li className="carett">
+                  <i className="fa-solid fa-caret-up"></i>
+                </li>
+                <Link
+                  to="#"
+                  className="cd-link dblock"
+                  style={{
+                    textDecoration: "none",
+                    fontSize: "20px",
+                    color: "gray",
+                  }}
+                >
+                  Cards
+                </Link>
+                <Link
+                  to="#"
+                  className="abs-link dblock"
+                  style={{
+                    textDecoration: "none",
+                    fontSize: "20px",
+                    color: "gray",
+                  }}
+                >
+                  About Us
+                </Link>
+                <Link
+                  to="#"
+                  className="cs-link dblock"
+                  style={{
+                    textDecoration: "none",
+                    fontSize: "20px",
+                    color: "gray",
+                  }}
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </div>
+
+            <div className="blog-dropdown">
+              <span ref={blogElement}>BLOG</span>
+              <br></br>
+              <br></br>
+              <div className="blog-dropdown-content animate__animated animate__fadeIn">
+                <li className="caretfa">
+                  <i className="fa-solid fa-caret-up"></i>
+                </li>
+                <Link
+                  to="#"
+                  className="news-link dblock"
+                  style={{
+                    textDecoration: "none",
+                    fontSize: "20px",
+                    color: "gray",
+                  }}
+                >
+                  Latest News
+                </Link>
+                <Link
+                  to="#"
+                  className="detail-link dblock"
+                  style={{
+                    textDecoration: "none",
+                    fontSize: "20px",
+                    color: "gray",
+                  }}
+                >
+                  Details
+                </Link>
+              </div>
+            </div>
+
+            <div className="apply_dev">
+              <Link to="#" className="apply-loan" ref={applyElement}>
+                APPLY
               </Link>
             </div>
-          </div>
 
-          <div className="loan-app-dropdown">
-            <span ref={loanElement}>LOAN</span>
-            <br></br>
-            <br></br>
-            <div className="loan-app-dropdown-content animate__animated animate__fadeIn">
-              <li className="caret">
-                <i class="fa-solid fa-caret-up"></i>
-              </li>
-              <Link
-                to="#"
-                className="getloan-link dblock"
-                style={{
-                  textDecoration: "none",
-                  fontSize: "20px",
-                  color: "gray",
-                }}
-              >
-                Get Loan
-              </Link>
-              <Link
-                to="#"
-                className="loanapp-link dblock"
-                style={{
-                  textDecoration: "none",
-                  fontSize: "20px",
-                  color: "gray",
-                }}
-              >
-                Loan Application
-              </Link>
-            </div>
+            <label className="switch">
+              <input type="checkbox" ref={myInputRef} onClick={focusOnchange} />
+              <span className="slider round"></span>
+              <i className="fa-solid fa-cloud-sun" ref={iconsun}></i>
+              <i className="fa-solid fa-moon" ref={iconmoon}></i>
+            </label>
           </div>
-
-          <div className="get-job-dropdown">
-            <span ref={getjobElement}>GET JOB</span>
-            <br></br>
-            <br></br>
-            <div className="job-dropdown-content animate__animated animate__fadeIn">
-              <li className="carett">
-                <i class="fa-solid fa-caret-up"></i>
-              </li>
-              <Link
-                to="#"
-                className="get-link dblock"
-                style={{
-                  textDecoration: "none",
-                  fontSize: "20px",
-                  color: "gray",
-                }}
-              >
-                Career
-              </Link>
-              <Link
-                to="#"
-                className="jb-link dblock"
-                style={{
-                  textDecoration: "none",
-                  fontSize: "20px",
-                  color: "gray",
-                }}
-              >
-                Jobs
-              </Link>
-              <Link
-                to="#"
-                className="jbapp-link dblock"
-                style={{
-                  textDecoration: "none",
-                  fontSize: "20px",
-                  color: "gray",
-                }}
-              >
-                Job Application
-              </Link>
-            </div>
-          </div>
-
-          <div className="about-dropdown">
-            <span ref={aboutElement}>ABOUT</span>
-            <br></br>
-            <br></br>
-            <div className="about-dropdown-content animate__animated animate__fadeIn">
-              <li className="carett">
-                <i class="fa-solid fa-caret-up"></i>
-              </li>
-              <Link
-                to="#"
-                className="cd-link dblock"
-                style={{
-                  textDecoration: "none",
-                  fontSize: "20px",
-                  color: "gray",
-                }}
-              >
-                Cards
-              </Link>
-              <Link
-                to="#"
-                className="abs-link dblock"
-                style={{
-                  textDecoration: "none",
-                  fontSize: "20px",
-                  color: "gray",
-                }}
-              >
-                About Us
-              </Link>
-              <Link
-                to="#"
-                className="cs-link dblock"
-                style={{
-                  textDecoration: "none",
-                  fontSize: "20px",
-                  color: "gray",
-                }}
-              >
-                Contact Us
-              </Link>
-            </div>
-          </div>
-
-          <div className="blog-dropdown">
-            <span ref={blogElement}>BLOG</span>
-            <br></br>
-            <br></br>
-            <div className="blog-dropdown-content animate__animated animate__fadeIn">
-              <li className="caretfa">
-                <i class="fa-solid fa-caret-up"></i>
-              </li>
-              <Link
-                to="#"
-                className="news-link dblock"
-                style={{
-                  textDecoration: "none",
-                  fontSize: "20px",
-                  color: "gray",
-                }}
-              >
-                Latest News
-              </Link>
-              <Link
-                to="#"
-                className="detail-link dblock"
-                style={{
-                  textDecoration: "none",
-                  fontSize: "20px",
-                  color: "gray",
-                }}
-              >
-                Details
-              </Link>
-            </div>
-          </div>
-
-          <div className="apply_dev">
-            <Link to="#" className="apply-loan" ref={applyElement}>
-              APPLY
-            </Link>
-          </div>
-
-          <label class="switch">
-            <input type="checkbox" ref={myInputRef} onClick={focusOnchange} />
-            <span class="slider round"></span>
-            <i class="fa-solid fa-cloud-sun" ref={iconsun}></i>
-            <i class="fa-solid fa-moon" ref={iconmoon}></i>
-          </label>
-        </div>
-      </ul>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      {/* <br></br>
+        </ul>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        {/* <br></br>
       <br></br>
       <br></br> */}
 
-      <div className="layout_one_dev">
-        <div className="financial-text">
-
+        <div className="layout_one_dev">
+          <div className="financial-text">
             <div className="head">
-             <h1 className="head-smart-f"> Smart finance<br></br> solutions for your</h1>
-              <nav className="rectangle"> <li className="rectt"></li> <h2 className="head-buss">business</h2> </nav>
+              <h1 className="head-smart-f">
+                {" "}
+                Smart finance<br></br> solutions for your
+              </h1>
+              <nav className="rectangle">
+                {" "}
+                <li className="rectt"></li>{" "}
+                <h2 className="head-buss">business</h2>{" "}
+              </nav>
             </div>
 
             <img
@@ -540,122 +605,726 @@ function Home() {
             <Link to="#" className="link">
               Explore now{" "}
               <i
-                class="fa-solid fa-arrow-right ms-2 animate__animated animate__fadeIn"
+                className="fa-solid fa-arrow-right ms-2 animate__animated animate__fadeIn"
                 style={{ fontSize: "15px" }}
               ></i>
             </Link>
-          <br></br>
-          <br></br>
-          <br></br>
-          <div className="copera">
-            <p>We are coperationg with:</p>
+            <br></br>
+            <br></br>
+            <br></br>
+            <div className="copera">
+              <p>We are coperationg with:</p>
+              <img
+                src="https://html-template.spider-themes.net/banca/img/home-4/cooperator-1.png"
+                alt="holdings-logo"
+              />
+              <img
+                src="https://html-template.spider-themes.net/banca/img/home-4/cooperator-2.png"
+                alt="martyn-logo"
+                className="ms-3"
+              />
+              <img
+                src="https://html-template.spider-themes.net/banca/img/home-4/cooperator-3.png"
+                alt="reliance-logo"
+                className="ms-3"
+              />
+            </div>
             <img
-              src="https://html-template.spider-themes.net/banca/img/home-4/cooperator-1.png"
-              alt="holdings-logo"
-            />
-            <img
-              src="https://html-template.spider-themes.net/banca/img/home-4/cooperator-2.png"
-              alt="martyn-logo"
-              className="ms-3"
-            />
-            <img
-              src="https://html-template.spider-themes.net/banca/img/home-4/cooperator-3.png"
-              alt="reliance-logo"
-              className="ms-3"
-            />
-          </div>
-          <img
               src="https://html-template.spider-themes.net/banca/img/home-4/shape-2.png"
               alt="shapetwo"
               className="shape-two-img"
             />
+          </div>
+
+          <form className="forms" ref={formsbackgroundcolor}>
+            <h2 style={{ fontWeight: "bold" }}>Loan calculator</h2>
+            <br></br>
+            <div className="select_dev" style={{ marginBottom: "20px" }}>
+              <label htmlFor="typeloan" className="mb-3">
+                Type of Loan
+              </label>
+              <br></br>
+              <select ref={selectElement} onClick={focusSelectElement}>
+                <option value="1" selected>
+                  Debt Loan
+                </option>
+                <option value="2">Installment loan</option>
+              </select>
+            </div>
+            <div className="amount_dev" style={{ marginBottom: "20px" }}>
+              <label htmlFor="amount" className="mb-3">
+                Amount of money
+              </label>
+              <br></br>
+              <input
+                type="text"
+                placeholder="Enter amount"
+                className="inpu"
+                ref={amountEle}
+                onClick={focusAmountElement}
+              />
+              <i className="fa-solid fa-dollar-sign"></i>
+            </div>
+            <div className="days-dev" style={{ marginBottom: "20px" }}>
+              <label htmlFor="days" className="mb-3">
+                For how long (days)
+              </label>
+              <br></br>
+              <input
+                type="text"
+                placeholder="For how long (days)"
+                ref={daysElement}
+                onClick={focusDaysElement}
+              />
+            </div>
+            <div className="repay-dev" style={{ marginBottom: "20px" }}>
+              <label htmlFor="repay" className="mb-3">
+                Repayments
+              </label>
+              <br></br>
+              <input
+                type="text"
+                placeholder="Enter amount"
+                ref={repayAmountElement}
+                onClick={focusreamountEl}
+              />
+              <i className="fa-solid fa-dollar-sign"></i>
+            </div>
+            <button type="submit" className="bitton">
+              <Link
+                to="#"
+                style={{
+                  textDecoration: "none",
+                  textAlign: "center",
+                  color: "white",
+                  fontFamily: "sans-serif",
+                  fontWeight: "bold",
+                }}
+              >
+                Apply For Loans
+              </Link>
+            </button>
+            <img
+              src="https://html-template.spider-themes.net/banca/img/home-4/shape-1.png"
+              alt="shapeone"
+              className="shape-one"
+            />
+            <img
+              src="https://html-template.spider-themes.net/banca/img/home-4/shape-5.png"
+              alt="shapefive"
+              className="shape-five"
+            />
+            <img
+              src="https://html-template.spider-themes.net/banca/img/home-4/shape-3.png"
+              alt="shapethree"
+              className="shape-three"
+            />
+          </form>
         </div>
-        
-        <form className="forms" ref={formsbackgroundcolor}>
-          <h2 style={{ fontWeight: "bold" }}>Loan calculator</h2>
-          <br></br>
-          <div className="select_dev" style={{ marginBottom: "20px" }}>
-            <label htmlFor="typeloan" className="mb-3">
-              Type of Loan
-            </label>
-            <br></br>
-            <select ref={selectElement} onClick={focusSelectElement}>
-              <option value="1" selected>
-                Debt Loan
-              </option>
-              <option value="2">Installment loan</option>
-            </select>
-          </div>
-          <div className="amount_dev" style={{ marginBottom: "20px" }}>
-            <label htmlFor="amount" className="mb-3">
-              Amount of money
-            </label>
-            <br></br>
-            <input
-              type="text"
-              placeholder="Enter amount"
-              className="inpu"
-              ref={amountEle}
-              onClick={focusAmountElement}
-            />
-            <i class="fa-solid fa-dollar-sign"></i>
-          </div>
-          <div className="days-dev" style={{ marginBottom: "20px" }}>
-            <label htmlFor="days" className="mb-3">
-              For how long (days)
-            </label>
-            <br></br>
-            <input
-              type="text"
-              placeholder="For how long (days)"
-              ref={daysElement}
-              onClick={focusDaysElement}
-            />
-          </div>
-          <div className="repay-dev" style={{ marginBottom: "20px" }}>
-            <label htmlFor="repay" className="mb-3">
-              Repayments
-            </label>
-            <br></br>
-            <input
-              type="text"
-              placeholder="Enter amount"
-              ref={repayAmountElement}
-              onClick={focusreamountEl}
-            />
-            <i class="fa-solid fa-dollar-sign"></i>
-          </div>
-          <button type="submit" className="bitton">
-            <Link
-              to="#"
+      </main>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <div className="txt-content">
+        <div>
+          <h6 style={{ textAlign: "center", color: "grey", fontSize: "12px" }}>
+            _OUR PROCESS
+          </h6>
+          <nav className="rectan">
+            <li className="recti"></li>
+            <h1 className="three-steps">3 steps to follow</h1>
+          </nav>
+          <p className="text-center">
+            There are many variations of passages of Lorem Ipsum available, but
+            the<br></br> majority have suffered alteration in some form,
+          </p>
+        </div>
+      </div>
+
+      <div className="flex-boxe">
+        <div className="box-one">
+          <img
+            src="https://html-template.spider-themes.net/banca/img/home-4/step-icon-01.svg"
+            alt="wave-icon"
+            className="wave-icon"
+          />
+          <h3 style={{ textAlign: "center" }}>Apply for loan</h3>
+          <p>
+            Quis dapibus volutpat condimentum quam<br></br> sed non elit sed
+            magna lectus dui interdum<br></br> facilisi justo
+          </p>
+        </div>
+
+        <div className="box-two">
+          <img
+            src="https://html-template.spider-themes.net/banca/img/home-4/step-icon-02.svg"
+            alt="like-icon"
+            className="like-icon"
+          />
+          <h3 style={{ textAlign: "center" }}>Get approved</h3>
+          <p>
+            Quis dapibus volutpat condimentum quam<br></br> sed non elit sed
+            magna lectus dui interdum<br></br> facilisi justo
+          </p>
+        </div>
+
+        <div className="box-three">
+          <img
+            src="https://html-template.spider-themes.net/banca/img/home-4/step-icon-03.svg"
+            alt="dollar-icon"
+            className="dollar-icon"
+          />
+          <h3 style={{ textAlign: "center" }}>Get your money</h3>
+          <p>
+            Quis dapibus volutpat condimentum quam<br></br> sed non elit sed
+            magna lectus dui interdum<br></br> facilisi justo
+          </p>
+        </div>
+      </div>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+
+      <div className="layout-four-container">
+        <div className="layout-one-images">
+          <img
+            src="https://html-template.spider-themes.net/banca/img/home-4/manage-cash-img.png"
+            alt="manage-cash"
+            className="manage-cash-image"
+          />
+          <img
+            src="https://html-template.spider-themes.net/banca/img/home-4/basic-info-3.png"
+            alt="basic-info"
+            className="basic-info"
+          />
+          <img
+            src="https://html-template.spider-themes.net/banca/img/home-4/basic-info-2.png"
+            alt="amount-image"
+            className="amount-image"
+          />
+        </div>
+
+        <div className="layout-content-two">
+          <h6 style={{ color: "grey", fontSize: "12px" }}>_WHY BANCA?</h6>
+          <h1 className="man-el">Manage your</h1>
+          <nav className="easy-nav">
+            <li className="easy-rec"></li>
+            <h1 className="easy">cash easily</h1>
+          </nav>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and the<br></br>{" "}
+            typesetting industry. Lorem Ipsum has been industrys
+          </p>
+          <p style={{ fontWeight: "bold" }}>
+            <i
+              className="fa-solid fa-check"
               style={{
-                textDecoration: "none",
-                textAlign: "center",
                 color: "white",
-                fontFamily: "sans-serif",
-                fontWeight: "bold",
+                borderRadius: "50%",
+                backgroundColor: "#0050B2",
+                padding: "1px 1px 1px 1px",
+              }}
+            ></i>{" "}
+            <span style={{ paddingLeft: "10px" }}>
+              Inventore veritatis et architecto beatae
+            </span>
+          </p>
+          <p style={{ fontWeight: "bold" }}>
+            <i
+              className="fa-solid fa-check"
+              style={{
+                color: "white",
+                borderRadius: "50%",
+                backgroundColor: "#0050B2",
+                padding: "1px 1px 1px 1px",
+              }}
+            ></i>{" "}
+            <span style={{ paddingLeft: "10px" }}>
+              Inventore veritatis et architecto beatae
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <br></br>
+      <br></br>
+      <br></br>
+
+      <div className="tab">
+        <button
+          className="tablinks"
+          onClick={(event) => handleTabDisplay(event, "Freelancers")}
+          id="defaultOpen"
+        >
+          Freelancers
+        </button>
+        <button
+          className="tablinks"
+          onClick={(event) => handleTabDisplay(event, "SMBs")}
+        >
+          SMBs & Startups
+        </button>
+        <button
+          className="tablinks"
+          onClick={(event) => handleTabDisplay(event, "Business")}
+        >
+          Business Founders
+        </button>
+        <button
+          className="tablinks"
+          onClick={(event) => handleTabDisplay(event, "Micro")}
+        >
+          Micro businesses
+        </button>
+      </div>
+
+      <hr style={{ marginTop: "-1px", width: "900px", margin: "auto" }} />
+
+      <div id="Freelancers" className="tabcontent">
+        <div className="freelance-content-container">
+          <div className="freelance-layout-one">
+            <h1 className="acces_">Access to secure</h1>
+            <nav className="dev-banking">
+              <li className="bankin-rec"></li>
+              <h1 className="banking-txt">banking</h1>
+            </nav>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and the<br></br>{" "}
+              typesetting industry. Lorem Ipsum has been industrys
+            </p>
+            <button type="submit" className="getStar-button">
+              Get started now
+              <i class="fa-solid fa-arrow-right ms-2"></i>
+            </button>
+            <div className="line"></div>
+          </div>
+
+          <div className="freelance-images">
+            <img
+              src="https://html-template.spider-themes.net/banca/img/home-4/freelance-tab.png"
+              alt="freelance"
+              className="freelance-tab"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div id="SMBs" className="tabcontent">
+        <div className="smbs-content-container">
+          <div className="smbs-content-two">
+            <h1 className="man-el">Manage your</h1>
+            <nav className="easy-nav">
+              <li className="easy-rec"></li>
+              <h1 className="easy">cash easily</h1>
+            </nav>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and the<br></br>{" "}
+              typesetting industry. Lorem Ipsum has been industrys
+            </p>
+          </div>
+
+          <div className="layout-one-images smbs-images">
+            <img
+              src="https://html-template.spider-themes.net/banca/img/home-4/manage-cash-img.png"
+              alt="manage-cash"
+              className="manage-cash-image"
+            />
+            <img
+              src="https://html-template.spider-themes.net/banca/img/home-4/basic-info-3.png"
+              alt="basic-info"
+              className="basic-info"
+            />
+            <img
+              src="https://html-template.spider-themes.net/banca/img/home-4/basic-info-2.png"
+              alt="amount-image"
+              className="amount-image"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div id="Business" className="tabcontent">
+        <div className="freelance-content-container">
+          <div className="freelance-layout-one">
+            <h1 className="acces_">Access to secure</h1>
+            <nav className="dev-banking">
+              <li className="bankin-rec"></li>
+              <h1 className="banking-txt">banking</h1>
+            </nav>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and the<br></br>{" "}
+              typesetting industry. Lorem Ipsum has been industrys
+            </p>
+            <button type="submit" className="getStar-button">
+              Get started now
+              <i class="fa-solid fa-arrow-right ms-2"></i>
+            </button>
+            <div className="line"></div>
+          </div>
+
+          <div className="freelance-images">
+            <img
+              src="https://html-template.spider-themes.net/banca/img/home-4/freelance-tab.png"
+              alt="freelance"
+              className="freelance-tab"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div id="Micro" className="tabcontent">
+        <div className="smbs-content-container">
+          <div className="smbs-content-two">
+            <h1 className="man-el">Manage your</h1>
+            <nav className="easy-nav">
+              <li className="easy-rec"></li>
+              <h1 className="easy">cash easily</h1>
+            </nav>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and the<br></br>{" "}
+              typesetting industry. Lorem Ipsum has been industrys
+            </p>
+          </div>
+
+          <div className="layout-one-images smbs-images">
+            <img
+              src="https://html-template.spider-themes.net/banca/img/home-4/manage-cash-img.png"
+              alt="manage-cash"
+              className="manage-cash-image"
+            />
+            <img
+              src="https://html-template.spider-themes.net/banca/img/home-4/basic-info-3.png"
+              alt="basic-info"
+              className="basic-info"
+            />
+            <img
+              src="https://html-template.spider-themes.net/banca/img/home-4/basic-info-2.png"
+              alt="amount-image"
+              className="amount-image"
+            />
+          </div>
+        </div>
+      </div>
+
+      <section className="sec-lyt-six">
+        <div className="flex-container-layt-six">
+          <div>
+            <img
+              src="https://html-template.spider-themes.net/banca/img/home-4/faq-Img.png"
+              alt="imageG"
+            />
+          </div>
+
+          <div style={{ marginLeft: "50px", marginTop: "1px" }}>
+            <h6 style={{ color: "#A7B4C0", fontWeight: "bold" }}>_FAQ</h6>
+            <h1
+              className="text-white"
+              style={{ fontWeight: "bold", fontSize: "50px" }}
+            >
+              Frequently asked
+            </h1>
+            <nav className="gen-nav">
+              <li className="gen-rec"></li>
+              <h1 className="text-white gener-q">general questions</h1>
+            </nav>
+            <br></br>
+            <br></br>
+            <button
+              className="collapsible"
+              style={{ border: "none" }}
+              id="DefaultCollabsOpen"
+            >
+              Can I pay off my loan early?
+            </button>
+            <div className="content">
+              <p>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life
+                accusamus terry richardson ad squid. 3 wolf moon officia aute,
+                non cupidatat skateboard dolor brunch.
+              </p>
+            </div>
+            <button
+              className="collapsible"
+              style={{
+                border: "1px solid white",
+                borderRight: "none",
+                borderLeft: "none",
+                borderBottom: "none",
               }}
             >
-              Apply For Loans
-            </Link>
-          </button>
-          <img
-            src="https://html-template.spider-themes.net/banca/img/home-4/shape-1.png"
-            alt="shapeone"
-            className="shape-one"
-          />
-          <img
-            src="https://html-template.spider-themes.net/banca/img/home-4/shape-5.png"
-            alt="shapefive"
-            className="shape-five"
-          />
-          <img
-            src="https://html-template.spider-themes.net/banca/img/home-4/shape-3.png"
-            alt="shapethree"
-            className="shape-three"
-          />
-        </form>
+              How much can I Banca?
+            </button>
+            <div className="content">
+              <p>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life
+                accusamus terry richardson ad squid. 3 wolf moon officia aute,
+                non cupidatat skateboard dolor brunch.
+              </p>
+            </div>
+            <button
+              className="collapsible"
+              style={{
+                border: "1px solid white",
+                borderRight: "none",
+                borderLeft: "none",
+                borderBottom: "none",
+              }}
+            >
+              Do you offering refinancing ?
+            </button>
+            <div className="content">
+              <p>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life
+                accusamus terry richardson ad squid. 3 wolf moon officia aute,
+                non cupidatat skateboard dolor brunch.
+              </p>
+            </div>
+            <button
+              className="collapsible"
+              style={{
+                border: "1px solid white",
+                borderRight: "none",
+                borderLeft: "none",
+                borderBottom: "none",
+              }}
+            >
+              Can I do all of my banking with you?
+            </button>
+            <div className="content">
+              <p>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life
+                accusamus terry richardson ad squid. 3 wolf moon officia aute,
+                non cupidatat skateboard dolor brunch.
+              </p>
+            </div>
+            <div
+              style={{
+                color: "white",
+                width: "625px",
+                height: "1px",
+                backgroundColor: "white",
+              }}
+            ></div>
+            <div
+              style={{ color: "white", marginLeft: "20px", marginTop: "15px" }}
+            >
+              Have more questions ?{" "}
+              <a href="#" style={{ color: "white" }}>
+                Contact us
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <div className="container-layt-seven">
+        <h6
+          style={{ color: "#A7B4C0", fontWeight: "bold", textAlign: "center" }}
+        >
+          _SERVICE COMPARISONS
+        </h6>
+        <nav className="better-ser-nav">
+          <li className="better-rec"></li>
+          <h1 className="better-txt">Our better services</h1>
+        </nav>
+        <p style={{ textAlign: "center" }}>
+          There are many variations of passages of Lorem Ipsum available,
+          <br></br> but the majority have suffered alteration in some form,
+        </p>
       </div>
+
+      <table>
+        <tr>
+          <td></td>
+          <td style={{ textAlign: "center" }}>
+            <img
+              src="https://html-template.spider-themes.net/banca/img/logo/Logo-2.png"
+              alt="logo"
+            />
+          </td>
+          <td>
+            <h3 style={{ fontWeight: "bold", textAlign: "center" }}>
+              Other Companies
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td style={{ backgroundColor: "#F9FDFE" }}>
+            <h5 style={{ fontWeight: "bold", paddingLeft: "20px" }}>
+              Payment Per Transaction
+            </h5>
+          </td>
+          <td style={{ backgroundColor: "#F4F5F6" }}>
+            <h6 style={{ textAlign: "center" }}>0.50/per transacrion</h6>
+          </td>
+          <td style={{ backgroundColor: "#F9FDFE" }}>
+            <h6 style={{ textAlign: "center" }}>1.50/per transaction</h6>
+          </td>
+        </tr>
+        <tr>
+          <td style={{ backgroundColor: "#F4F5F6" }}>
+            <h5 style={{ fontWeight: "bold", paddingLeft: "20px" }}>
+              Bank account limitations
+            </h5>
+          </td>
+          <td style={{ backgroundColor: "#E9E9EA" }}>
+            <h6 style={{ textAlign: "center" }}>up to 10 bank accounts</h6>
+          </td>
+          <td style={{ backgroundColor: "#F4F5F6" }}>
+            <h6 style={{ textAlign: "center" }}>Only 3 bank accounts</h6>
+          </td>
+        </tr>
+        <tr>
+          <td style={{ backgroundColor: "#F9FDFE" }}>
+            <h5 style={{ fontWeight: "bold", paddingLeft: "20px" }}>
+              Local fees capped at NGN 2,000
+            </h5>
+          </td>
+          <td style={{ textAlign: "center", backgroundColor: "#F4F5F6" }}>
+            <i
+              class="fa-solid fa-check"
+              style={{
+                border: "1px solid #0050b2",
+                borderRadius: "50%",
+                backgroundColor: "#0050b2",
+                color: "white",
+                padding: "2px 3px 2px 3px",
+              }}
+            ></i>
+          </td>
+          <td style={{ textAlign: "center", backgroundColor: "#F9FDFE" }}>
+            <i
+              class="fa-solid fa-xmark"
+              style={{
+                border: "1px solid red",
+                borderRadius: "50%",
+                backgroundColor: "red",
+                color: "white",
+                padding: "2px 3px 2px 3px",
+              }}
+            ></i>
+          </td>
+        </tr>
+        <tr>
+          <td style={{ backgroundColor: "#F4F5F6" }}>
+            <h5 style={{ fontWeight: "bold", paddingLeft: "20px" }}>
+              Loan Purchase
+            </h5>
+          </td>
+          <td style={{ backgroundColor: "#E9E9EA" }}>
+            <h6 style={{ textAlign: "center" }}>easy to follow steps</h6>
+          </td>
+          <td style={{ backgroundColor: "#F4F5F6" }}>
+            <h6 style={{ textAlign: "center" }}>complicated steps</h6>
+          </td>
+        </tr>
+        <tr>
+          <td style={{ backgroundColor: "#F9FDFE" }}>
+            <h5 style={{ fontWeight: "bold", paddingLeft: "20px" }}>
+              Debt Financing
+            </h5>
+          </td>
+          <td style={{ textAlign: "center", backgroundColor: "#F4F5F6" }}>
+            <i
+              class="fa-solid fa-check"
+              style={{
+                border: "1px solid #0050b2",
+                borderRadius: "50%",
+                backgroundColor: "#0050b2",
+                color: "white",
+                padding: "2px 3px 2px 3px",
+              }}
+            ></i>
+          </td>
+          <td style={{ textAlign: "center", backgroundColor: "#F9FDFE" }}>
+            <i
+              class="fa-solid fa-xmark"
+              style={{
+                border: "1px solid red",
+                borderRadius: "50%",
+                backgroundColor: "red",
+                color: "white",
+                padding: "2px 3px 2px 3px",
+              }}
+            ></i>
+          </td>
+        </tr>
+        <tr>
+          <td style={{ backgroundColor: "#F4F5F6" }}>
+            <h5 style={{ fontWeight: "bold", paddingLeft: "20px" }}>
+              No hidden fees or charges
+            </h5>
+          </td>
+          <td style={{ textAlign: "center", backgroundColor: "#E9E9EA" }}>
+            <i
+              class="fa-solid fa-check"
+              style={{
+                border: "1px solid #0050b2",
+                borderRadius: "50%",
+                backgroundColor: "#0050b2",
+                color: "white",
+                padding: "2px 3px 2px 3px",
+              }}
+            ></i>
+          </td>
+          <td style={{ textAlign: "center", backgroundColor: "#F4F5F6" }}>
+            <i
+              class="fa-solid fa-xmark"
+              style={{
+                border: "1px solid red",
+                borderRadius: "50%",
+                backgroundColor: "red",
+                color: "white",
+                padding: "2px 3px 2px 3px",
+              }}
+            ></i>
+          </td>
+        </tr>
+        <tr>
+          <td style={{ backgroundColor: "#F9FDFE" }}>
+            <h5 style={{ fontWeight: "bold", paddingLeft: "20px" }}>
+              Local fees capped
+            </h5>
+          </td>
+          <td style={{ textAlign: "center", backgroundColor: "#F4F5F6" }}>
+            <i
+              class="fa-solid fa-check"
+              style={{
+                border: "1px solid #0050b2",
+                borderRadius: "50%",
+                backgroundColor: "#0050b2",
+                color: "white",
+                padding: "2px 3px 2px 3px",
+              }}
+            ></i>
+          </td>
+          <td style={{ textAlign: "center", backgroundColor: "#F9FDFE" }}>
+            <i
+              class="fa-solid fa-xmark"
+              style={{
+                border: "1px solid red",
+                borderRadius: "50%",
+                backgroundColor: "red",
+                color: "white",
+                padding: "2px 3px 2px 3px",
+              }}
+            ></i>
+          </td>
+        </tr>
+      </table>
+      <br></br>
+      <br></br>
+      <br></br>
     </div>
   );
 }
