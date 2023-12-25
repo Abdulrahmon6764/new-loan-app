@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import "./Home.css";
 import { useEffect, useRef } from "react";
-
+import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import { Carousel } from "react-bootstrap";
+import { FaStar } from "react-icons/fa";
+import "./CarouselStyles.css";
 function Home() {
+  //////Dark Mode Handling
   const myInputRef = useRef();
 
   const iconsun = useRef();
@@ -251,9 +255,9 @@ function Home() {
 
     // handleScroll();
 
-    document.getElementById("DefaultCollabsOpen").click();
-
     handleCollapsibles();
+
+    document.getElementById("DefaultCollabsOpen").click();
 
     document.addEventListener("click", handleOutsideClickEle);
 
@@ -1143,6 +1147,9 @@ function Home() {
         </p>
       </div>
 
+      <br></br>
+      <br></br>
+
       <table>
         <tr>
           <td></td>
@@ -1322,10 +1329,910 @@ function Home() {
           </td>
         </tr>
       </table>
+      <div className="tableButton">
+        <button>
+          <a
+            href="#"
+            style={{ color: "white", fontWeight: "bold", fontSize: "17px" }}
+          >
+            Get Started Now
+          </a>
+          <i
+            class="fa-solid fa-arrow-right"
+            style={{ color: "white", fontSize: "13px", marginLeft: "10px" }}
+          ></i>
+        </button>
+      </div>
       <br></br>
       <br></br>
       <br></br>
       <br></br>
+
+      <div className="container-layt-nine">
+        <div>
+          <h1 style={{ fontWeight: "bold", fontSize: "50px" }}>
+            0 <span>K</span>
+          </h1>
+          <h6 style={{ color: "#A7B4C0" }}>Total active customers</h6>
+        </div>
+
+        <div style={{ borderLeft: "1px solid #A7B4C0" }}></div>
+
+        <div>
+          <h1 style={{ fontWeight: "bold", fontSize: "50px" }}>0M+</h1>
+          <h6 style={{ color: "#A7B4C0" }}>Order success rate</h6>
+        </div>
+
+        <div style={{ borderLeft: "1px solid #A7B4C0" }}></div>
+
+        <div>
+          <h1 style={{ fontWeight: "bold", fontSize: "50px" }}>0.00%</h1>
+          <h6 style={{ color: "#A7B4C0" }}>Avg. new projects</h6>
+        </div>
+      </div>
+
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+
+      <section
+        style={{
+          background: "#F4F5F6",
+          paddingTop: "60px",
+          paddingBottom: "100px",
+        }}
+      >
+        <div className="container-layt-seven">
+          <h6
+            style={{
+              color: "#A7B4C0",
+              fontWeight: "bold",
+              textAlign: "center",
+            }}
+          >
+            _TESTIMONIALS
+          </h6>
+          <nav className="customerF-nav">
+            <li className="customerF-rec"></li>
+            <h1 className="customerF">Customer feedbacks</h1>
+          </nav>
+          <p style={{ textAlign: "center" }}>
+            There are many variations of passages of Lorem Ipsum available,
+            <br></br> but the majority have suffered alteration in some form,
+          </p>
+        </div>
+
+        <div className="container">
+          <Carousel>
+            <Carousel.Item>
+              <div className="carousel-content-container">
+                <div className="caro-layt-one">
+                  <p
+                    style={{
+                      marginLeft: "30px",
+                      paddingTop: "30px",
+                      marginTop: "0",
+                    }}
+                  >
+                    <i
+                      className="fa-solid fa-star text-warning"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                  </p>
+
+                  <div
+                    className="paragh-div"
+                    style={{
+                      marginLeft: "30px",
+                      marginBottom: "30px",
+                      marginTop: "0",
+                    }}
+                  >
+                    {/* <Carousel.Caption> */}
+                    <p
+                      className="text-black"
+                      style={{ fontSize: "18px", fontWeight: "400" }}
+                    >
+                      Assertively procrastinate distributed<br></br>
+                      relationships whereas equity invested<br></br>
+                      intellectual capital everything
+                    </p>
+                    {/* </Carousel.Caption> */}
+                  </div>
+
+                  <div
+                    className="d-flex"
+                    style={{ marginLeft: "30px", marginBottom: "20px" }}
+                  >
+                    <div>
+                      <img
+                        src="https://html-template.spider-themes.net/banca/img/home-4/client-rev-1.png"
+                        alt="client-rev"
+                        width={"100%"}
+                        height={"100%"}
+                      />
+                    </div>
+                    <div className="ms-3">
+                      {/* <Carousel.Caption> */}
+                      <h6
+                        className="text-black"
+                        style={{ fontSize: "18px", fontWeight: "400" }}
+                      >
+                        Gerry Hellmen
+                      </h6>
+                      <h6
+                        style={{
+                          fontSize: "15px",
+                          fontWeight: "400",
+                          color: "grey",
+                        }}
+                      >
+                        Ui / Ux Designer
+                      </h6>
+                      {/* </Carousel.Caption> */}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="caro-layt-one" style={{ marginLeft: "30px" }}>
+                  <p
+                    style={{
+                      marginLeft: "30px",
+                      paddingTop: "30px",
+                      marginTop: "0",
+                    }}
+                  >
+                    <i
+                      className="fa-solid fa-star text-warning"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                  </p>
+
+                  <div
+                    className="paragh-div"
+                    style={{
+                      marginLeft: "30px",
+                      marginBottom: "30px",
+                      marginTop: "0",
+                    }}
+                  >
+                    {/* <Carousel.Caption> */}
+                    <p
+                      className="text-black"
+                      style={{ fontSize: "18px", fontWeight: "400" }}
+                    >
+                      Assertively procrastinate distributed<br></br>
+                      relationships whereas equity invested<br></br>
+                      intellectual capital everything
+                    </p>
+                    {/* </Carousel.Caption> */}
+                  </div>
+
+                  <div
+                    className="d-flex"
+                    style={{ marginLeft: "30px", marginBottom: "20px" }}
+                  >
+                    <div>
+                      <img
+                        src="https://html-template.spider-themes.net/banca/img/home-4/client-rev-1.png"
+                        alt="client-rev"
+                        width={"100%"}
+                        height={"100%"}
+                      />
+                    </div>
+                    <div className="ms-3">
+                      {/* <Carousel.Caption> */}
+                      <h6
+                        className="text-black"
+                        style={{ fontSize: "18px", fontWeight: "400" }}
+                      >
+                        Gerry Hellmen
+                      </h6>
+                      <h6
+                        style={{
+                          fontSize: "15px",
+                          fontWeight: "400",
+                          color: "grey",
+                        }}
+                      >
+                        Ui / Ux Designer
+                      </h6>
+                      {/* </Carousel.Caption> */}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="caro-layt-one" style={{ marginLeft: "30px" }}>
+                  <p
+                    style={{
+                      marginLeft: "30px",
+                      paddingTop: "30px",
+                      marginTop: "0",
+                    }}
+                  >
+                    <i
+                      className="fa-solid fa-star text-warning"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                  </p>
+
+                  <div
+                    className="paragh-div"
+                    style={{
+                      marginLeft: "30px",
+                      marginBottom: "30px",
+                      marginTop: "0",
+                    }}
+                  >
+                    {/* <Carousel.Caption> */}
+                    <p
+                      className="text-black"
+                      style={{ fontSize: "18px", fontWeight: "400" }}
+                    >
+                      Assertively procrastinate distributed<br></br>
+                      relationships whereas equity invested<br></br>
+                      intellectual capital everything
+                    </p>
+                    {/* </Carousel.Caption> */}
+                  </div>
+
+                  <div
+                    className="d-flex"
+                    style={{ marginLeft: "30px", marginBottom: "20px" }}
+                  >
+                    <div>
+                      <img
+                        src="https://html-template.spider-themes.net/banca/img/home-4/client-rev-1.png"
+                        alt="client-rev"
+                        width={"100%"}
+                        height={"100%"}
+                      />
+                    </div>
+                    <div className="ms-3">
+                      {/* <Carousel.Caption> */}
+                      <h6
+                        className="text-black"
+                        style={{ fontSize: "18px", fontWeight: "400" }}
+                      >
+                        Gerry Hellmen
+                      </h6>
+                      <h6
+                        style={{
+                          fontSize: "15px",
+                          fontWeight: "400",
+                          color: "grey",
+                        }}
+                      >
+                        Ui / Ux Designer
+                      </h6>
+                      {/* </Carousel.Caption> */}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Carousel.Item>
+
+            <Carousel.Item>
+              <div className="carousel-content-container">
+                <div className="caro-layt-one" style={{ marginLeft: "30px" }}>
+                  <p
+                    style={{
+                      marginLeft: "30px",
+                      paddingTop: "30px",
+                      marginTop: "0",
+                    }}
+                  >
+                    <i
+                      className="fa-solid fa-star text-warning"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                  </p>
+
+                  <div
+                    className="paragh-div"
+                    style={{
+                      marginLeft: "30px",
+                      marginBottom: "30px",
+                      marginTop: "0",
+                    }}
+                  >
+                    {/* <Carousel.Caption> */}
+                    <p
+                      className="text-black"
+                      style={{ fontSize: "18px", fontWeight: "400" }}
+                    >
+                      Assertively procrastinate distributed<br></br>
+                      relationships whereas equity invested<br></br>
+                      intellectual capital everything
+                    </p>
+                    {/* </Carousel.Caption> */}
+                  </div>
+
+                  <div
+                    className="d-flex"
+                    style={{ marginLeft: "30px", marginBottom: "20px" }}
+                  >
+                    <div>
+                      <img
+                        src="https://html-template.spider-themes.net/banca/img/home-4/client-rev-1.png"
+                        alt="client-rev"
+                        width={"100%"}
+                        height={"100%"}
+                      />
+                    </div>
+                    <div className="ms-3">
+                      {/* <Carousel.Caption> */}
+                      <h6
+                        className="text-black"
+                        style={{ fontSize: "18px", fontWeight: "400" }}
+                      >
+                        Gerry Hellmen
+                      </h6>
+                      <h6
+                        style={{
+                          fontSize: "15px",
+                          fontWeight: "400",
+                          color: "grey",
+                        }}
+                      >
+                        Ui / Ux Designer
+                      </h6>
+                      {/* </Carousel.Caption> */}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="caro-layt-one" style={{ marginLeft: "30px" }}>
+                  <p
+                    style={{
+                      marginLeft: "30px",
+                      paddingTop: "30px",
+                      marginTop: "0",
+                    }}
+                  >
+                    <i
+                      className="fa-solid fa-star text-warning"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                  </p>
+
+                  <div
+                    className="paragh-div"
+                    style={{
+                      marginLeft: "30px",
+                      marginBottom: "30px",
+                      marginTop: "0",
+                    }}
+                  >
+                    {/* <Carousel.Caption> */}
+                    <p
+                      className="text-black"
+                      style={{ fontSize: "18px", fontWeight: "400" }}
+                    >
+                      Assertively procrastinate distributed<br></br>
+                      relationships whereas equity invested<br></br>
+                      intellectual capital everything
+                    </p>
+                    {/* </Carousel.Caption> */}
+                  </div>
+
+                  <div
+                    className="d-flex"
+                    style={{ marginLeft: "30px", marginBottom: "20px" }}
+                  >
+                    <div>
+                      <img
+                        src="https://html-template.spider-themes.net/banca/img/home-4/client-rev-1.png"
+                        alt="client-rev"
+                        width={"100%"}
+                        height={"100%"}
+                      />
+                    </div>
+                    <div className="ms-3">
+                      {/* <Carousel.Caption> */}
+                      <h6
+                        className="text-black"
+                        style={{ fontSize: "18px", fontWeight: "400" }}
+                      >
+                        Gerry Hellmen
+                      </h6>
+                      <h6
+                        style={{
+                          fontSize: "15px",
+                          fontWeight: "400",
+                          color: "grey",
+                        }}
+                      >
+                        Ui / Ux Designer
+                      </h6>
+                      {/* </Carousel.Caption> */}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="caro-layt-one" style={{ marginLeft: "30px" }}>
+                  <p
+                    style={{
+                      marginLeft: "30px",
+                      paddingTop: "30px",
+                      marginTop: "0",
+                    }}
+                  >
+                    <i
+                      className="fa-solid fa-star text-warning"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                  </p>
+
+                  <div
+                    className="paragh-div"
+                    style={{
+                      marginLeft: "30px",
+                      marginBottom: "30px",
+                      marginTop: "0",
+                    }}
+                  >
+                    {/* <Carousel.Caption> */}
+                    <p
+                      className="text-black"
+                      style={{ fontSize: "18px", fontWeight: "400" }}
+                    >
+                      Assertively procrastinate distributed<br></br>
+                      relationships whereas equity invested<br></br>
+                      intellectual capital everything
+                    </p>
+                    {/* </Carousel.Caption> */}
+                  </div>
+
+                  <div
+                    className="d-flex"
+                    style={{ marginLeft: "30px", marginBottom: "20px" }}
+                  >
+                    <div>
+                      <img
+                        src="https://html-template.spider-themes.net/banca/img/home-4/client-rev-1.png"
+                        alt="client-rev"
+                        width={"100%"}
+                        height={"100%"}
+                      />
+                    </div>
+                    <div className="ms-3">
+                      {/* <Carousel.Caption> */}
+                      <h6
+                        className="text-black"
+                        style={{ fontSize: "18px", fontWeight: "400" }}
+                      >
+                        Gerry Hellmen
+                      </h6>
+                      <h6
+                        style={{
+                          fontSize: "15px",
+                          fontWeight: "400",
+                          color: "grey",
+                        }}
+                      >
+                        Ui / Ux Designer
+                      </h6>
+                      {/* </Carousel.Caption> */}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Carousel.Item>
+
+            <Carousel.Item>
+              <div className="carousel-content-container">
+                <div className="caro-layt-one" style={{ marginLeft: "30px" }}>
+                  <p
+                    style={{
+                      marginLeft: "30px",
+                      paddingTop: "30px",
+                      marginTop: "0",
+                    }}
+                  >
+                    <i
+                      className="fa-solid fa-star text-warning"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                  </p>
+
+                  <div
+                    className="paragh-div"
+                    style={{
+                      marginLeft: "30px",
+                      marginBottom: "30px",
+                      marginTop: "0",
+                    }}
+                  >
+                    {/* <Carousel.Caption> */}
+                    <p
+                      className="text-black"
+                      style={{ fontSize: "18px", fontWeight: "400" }}
+                    >
+                      Assertively procrastinate distributed<br></br>
+                      relationships whereas equity invested<br></br>
+                      intellectual capital everything
+                    </p>
+                    {/* </Carousel.Caption> */}
+                  </div>
+
+                  <div
+                    className="d-flex"
+                    style={{ marginLeft: "30px", marginBottom: "20px" }}
+                  >
+                    <div>
+                      <img
+                        src="https://html-template.spider-themes.net/banca/img/home-4/client-rev-1.png"
+                        alt="client-rev"
+                        width={"100%"}
+                        height={"100%"}
+                      />
+                    </div>
+                    <div className="ms-3">
+                      {/* <Carousel.Caption> */}
+                      <h6
+                        className="text-black"
+                        style={{ fontSize: "18px", fontWeight: "400" }}
+                      >
+                        Gerry Hellmen
+                      </h6>
+                      <h6
+                        style={{
+                          fontSize: "15px",
+                          fontWeight: "400",
+                          color: "grey",
+                        }}
+                      >
+                        Ui / Ux Designer
+                      </h6>
+                      {/* </Carousel.Caption> */}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="caro-layt-one" style={{ marginLeft: "30px" }}>
+                  <p
+                    style={{
+                      marginLeft: "30px",
+                      paddingTop: "30px",
+                      marginTop: "0",
+                    }}
+                  >
+                    <i
+                      className="fa-solid fa-star text-warning"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                  </p>
+
+                  <div
+                    className="paragh-div"
+                    style={{
+                      marginLeft: "30px",
+                      marginBottom: "30px",
+                      marginTop: "0",
+                    }}
+                  >
+                    {/* <Carousel.Caption> */}
+                    <p
+                      className="text-black"
+                      style={{ fontSize: "18px", fontWeight: "400" }}
+                    >
+                      Assertively procrastinate distributed<br></br>
+                      relationships whereas equity invested<br></br>
+                      intellectual capital everything
+                    </p>
+                    {/* </Carousel.Caption> */}
+                  </div>
+
+                  <div
+                    className="d-flex"
+                    style={{ marginLeft: "30px", marginBottom: "20px" }}
+                  >
+                    <div>
+                      <img
+                        src="https://html-template.spider-themes.net/banca/img/home-4/client-rev-1.png"
+                        alt="client-rev"
+                        width={"100%"}
+                        height={"100%"}
+                      />
+                    </div>
+                    <div className="ms-3">
+                      {/* <Carousel.Caption> */}
+                      <h6
+                        className="text-black"
+                        style={{ fontSize: "18px", fontWeight: "400" }}
+                      >
+                        Gerry Hellmen
+                      </h6>
+                      <h6
+                        style={{
+                          fontSize: "15px",
+                          fontWeight: "400",
+                          color: "grey",
+                        }}
+                      >
+                        Ui / Ux Designer
+                      </h6>
+                      {/* </Carousel.Caption> */}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="caro-layt-one" style={{ marginLeft: "30px" }}>
+                  <p
+                    style={{
+                      marginLeft: "30px",
+                      paddingTop: "30px",
+                      marginTop: "0",
+                    }}
+                  >
+                    <i
+                      className="fa-solid fa-star text-warning"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                    <i
+                      className="fa-solid fa-star text-warning ps-2"
+                      style={{ fontSize: "25px" }}
+                    ></i>
+                  </p>
+
+                  <div
+                    className="paragh-div"
+                    style={{
+                      marginLeft: "30px",
+                      marginBottom: "30px",
+                      marginTop: "0",
+                    }}
+                  >
+                    {/* <Carousel.Caption> */}
+                    <p
+                      className="text-black"
+                      style={{ fontSize: "18px", fontWeight: "400" }}
+                    >
+                      Assertively procrastinate distributed<br></br>
+                      relationships whereas equity invested<br></br>
+                      intellectual capital everything
+                    </p>
+                    {/* </Carousel.Caption> */}
+                  </div>
+
+                  <div
+                    className="d-flex"
+                    style={{ marginLeft: "30px", marginBottom: "20px" }}
+                  >
+                    <div>
+                      <img
+                        src="https://html-template.spider-themes.net/banca/img/home-4/client-rev-1.png"
+                        alt="client-rev"
+                        width={"100%"}
+                        height={"100%"}
+                      />
+                    </div>
+                    <div className="ms-3">
+                      {/* <Carousel.Caption> */}
+                      <h6
+                        className="text-black"
+                        style={{ fontSize: "18px", fontWeight: "400" }}
+                      >
+                        Gerry Hellmen
+                      </h6>
+                      <h6
+                        style={{
+                          fontSize: "15px",
+                          fontWeight: "400",
+                          color: "grey",
+                        }}
+                      >
+                        Ui / Ux Designer
+                      </h6>
+                      {/* </Carousel.Caption> */}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Carousel.Item>
+          </Carousel>
+        </div>
+      </section>
+
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+
+      <div className="container-layt-seven">
+        <h6
+          style={{ color: "#A7B4C0", fontWeight: "bold", textAlign: "center" }}
+        >
+          _BLOG
+        </h6>
+        <nav className="latest-aticle">
+          <li className="aticle-rec"></li>
+          <h1 className="articles-txt">Our latest articles</h1>
+        </nav>
+        <p style={{ textAlign: "center" }}>
+          There are many variations of passages of Lorem Ipsum available,
+          <br></br> but the majority have suffered alteration in some form,
+        </p>
+      </div>
+
+      <div className="container-article">
+        <div className="container-article-content-one">
+          <div className="d-flex">
+            <img
+              src="https://html-template.spider-themes.net/banca/img/home-4/article-1.png"
+              alt="article-one"
+            />{" "}
+            <li className="desin">DESIGN</li>
+          </div>
+          <li className="arti-link">
+            <a href="#">
+              Build a website that looks like it<br></br> can run on it’s own
+            </a>
+          </li>
+          <li>
+            <i className="fa-regular fa-calendar"></i>{" "}
+            <span className="ms-1">December 25, 2023</span>{" "}
+            <i className="fa-regular fa-user ms-3"></i>{" "}
+            <span className="ms-1">Spiderthemes</span>
+          </li>
+        </div>
+
+        <div
+          className="container-article-content-one"
+          style={{ marginLeft: "50px" }}
+        >
+          <div className="d-flex">
+            <img
+              src="https://html-template.spider-themes.net/banca/img/home-4/article-2.png"
+              alt="article-one"
+            />{" "}
+            <li className="desing">DESIGN</li>
+          </div>
+          <li className="arti-link">
+            <a href="#">
+              Build a website that looks like it<br></br> can run on it’s own
+            </a>
+          </li>
+          <li>
+            <i className="fa-regular fa-calendar"></i>{" "}
+            <span className="ms-1">December 25, 2023</span>{" "}
+            <i className="fa-regular fa-user ms-3"></i>{" "}
+            <span className="ms-1">Spiderthemes</span>
+          </li>
+        </div>
+
+        <div
+          className="container-article-content-one"
+          style={{ marginLeft: "50px" }}
+        >
+          <div className="d-flex">
+            <img
+              src="https://html-template.spider-themes.net/banca/img/home-4/article-3.png"
+              alt="article-one"
+            />{" "}
+            <li className="designn">DESIGN</li>
+          </div>
+          <li className="arti-link">
+            <a href="#">
+              Build a website that looks like it<br></br> can run on it’s own
+            </a>
+          </li>
+          <li>
+            <i className="fa-regular fa-calendar"></i>{" "}
+            <span className="ms-1">December 25, 2023</span>{" "}
+            <i className="fa-regular fa-user ms-3"></i>{" "}
+            <span className="ms-1">Spiderthemes</span>
+          </li>
+        </div>
+      </div>
+      
     </div>
   );
 }
