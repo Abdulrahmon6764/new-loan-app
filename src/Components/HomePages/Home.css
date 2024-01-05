@@ -82,7 +82,7 @@ html {
   color: #0050b2;
 }
 
-.active {
+.home-active {
   color: white;
   font-size: 15px;
   font-weight: bold;
@@ -404,7 +404,9 @@ input:checked + .slider:before {
   padding-top: 25px;
   height: 680px;
   border-radius: 10px;
+  margin-top: 100px;
 }
+
 .select_dev select {
   padding: 20px 0px 20px 30px;
   font-size: 17px;
@@ -474,6 +476,7 @@ select option {
 
 .financial-text {
   margin-left: 30px;
+  margin-top: 150px;
 }
 
 .rectangle {
@@ -942,7 +945,7 @@ button.getStar-button:hover {
 .better-ser-nav {
   display: flex;
   flex-direction: row;
-  margin-left: 475px;
+  margin-left: 585px;
 }
 
 .better-ser-nav .better-rec {
@@ -987,13 +990,13 @@ td {
 
 .container-layt-nine {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .customerF-nav {
   display: flex;
   flex-direction: row;
-  margin-left: 650px;
+  margin-left: 740px;
 }
 
 .customerF-nav .customerF-rec {
@@ -1082,4 +1085,190 @@ td {
 
 .container-article-content-one {
   cursor: pointer;
+}
+
+.startfree-content input[type="text"] {
+  padding: 16px 10px 16px 20px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid white;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.startfree-content button[type="submit"] {
+  margin-left: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+  padding: 16px 35px 16px 35px;
+  color: white;
+  background-color: black;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+}
+
+.hjrjger {
+  background-color: #171d24;
+  background-image: linear-gradient(white, #171d24);
+}
+
+.startFree-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #0050b2;
+  background-image: url("https://html-template.spider-themes.net/banca/img/home-4/cta-shape.png");
+  background-repeat: no-repeat;
+  background-position: right 120px;
+  border-radius: 6px;
+  margin-bottom: 150px;
+}
+
+.startfree-content {
+  margin-top: 100px;
+}
+
+.footer-content-one h6 {
+  font-weight: 400;
+  color: white;
+  margin-bottom: 22px;
+}
+
+.footer-content-one h1 {
+  font-weight: bold;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 65px;
+  color: white;
+  margin-bottom: 22px;
+}
+
+/*   */
+
+.footer-link {
+  margin-bottom: 30px;
+}
+
+.footer-link a {
+  text-decoration: 1px solid gray;
+  transition: text-decoration 0.3s;
+  color: white;
+}
+
+.footer-link a:hover {
+  text-decoration: 1px solid white underline;
+}
+
+.homePage-footer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.fa-facebook-f {
+  color: white;
+  font-size: 20px;
+  padding: 15px 18px 15px 18px;
+  border-radius: 50%;
+  transition: color, background-color 0.3s;
+  border: 1px solid white;
+}
+
+.fa-facebook-f:hover {
+  color: gray;
+  background-color: white;
+}
+
+.fa-twitter {
+  color: white;
+  font-size: 20px;
+  padding: 15px 20px 15px 20px;
+  border-radius: 50%;
+  transition: color, background-color 0.3s;
+  border: 1px solid white;
+}
+
+.fa-twitter:hover {
+  color: gray;
+  background-color: white;
+}
+
+.fa-instagram {
+  color: white;
+  font-size: 20px;
+  padding: 15px 15px 15px 15px;
+  border-radius: 50%;
+  transition: color, background-color 0.3s;
+  border: 1px solid white;
+}
+
+.fa-instagram:hover {
+  color: gray;
+  background-color: white;
+}
+
+.fa-pinterest-p {
+  color: white;
+  font-size: 20px;
+  padding: 15px 16px 15px 16px;
+  border-radius: 50%;
+  transition: color, background-color 0.3s;
+  border: 1px solid white;
+}
+
+.fa-pinterest-p:hover {
+  color: gray;
+  background-color: white;
+}
+
+.fa-linkedin-in {
+  color: white;
+  font-size: 20px;
+  padding: 15px 15px 15px 15px;
+  border-radius: 50%;
+  transition: color, background-color 0.3s;
+  border: 1px solid white;
+}
+
+.fa-linkedin-in:hover {
+  color: gray;
+  background-color: white;
+}
+
+.social-container {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #2f343a;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  align-items: center;
+}
+
+.condition-link {
+  text-decoration: none;
+  color: gray;
+  transition: color 0.3s;
+}
+
+.condition-link:hover {
+  color: white;
+}
+
+#myBTN {
+  padding: 10px 15px 10px 15px;
+  background-color: #b9babc;
+  border: 1px solid #b9babc;
+  border-radius: 7px;
+  transition: 0.5s;
+  position: fixed;
+  bottom: 50px;
+  display: none;
+}
+
+#myBTN:hover {
+  background-color: #1d2746;
+  color: white;
+  border: 1px solid #1d2746;
 }

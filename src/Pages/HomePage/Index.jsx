@@ -1,13 +1,15 @@
-import React from 'react';
-import Home from '../../Components/HomeP/Home';
+import React from "react";
+import Home from '../../Components/HomePages/Home';
+import { useState, useEffect } from "react";
 
 function Index() {
+  const names = ["usman", "abdulrahmon"];
+
   return (
     <div>
-
-        <Home />
+      <Home names={names} />
     </div>
-  )
+  );
 }
 
-export default Index
+export default Index;
